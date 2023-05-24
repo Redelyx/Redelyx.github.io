@@ -27,12 +27,58 @@ h {
     <div class="window-body">
       <p>Hi! I'm a Computer Engeneering Student @ Università di Parma, Italy.<br><br>
       <p>You can contact me with the links below:<br><br></p>
-      	<button><a href="https://www.linkedin.com/in/alice-cipriani/">>Linkedin<</a><br>
-		<button><a href="https://discord.gg/DD9gXtXDpb">>Discord<</a><br></button><br>
-        <p>Or you can browse my repositories:</p><br>
-        <button><a href="https://github.com/Redelyx">>GitHub<</a><br></button>
-</button>
+      <button><a href="https://www.linkedin.com/in/alice-cipriani/">>Linkedin<</a><br>
+	  <button><a href="https://discord.gg/DD9gXtXDpb">>Discord<</a><br></button><br>
+      <p>Or you can browse my repositories:</p><br>
+      <button><a href="https://github.com/Redelyx">>GitHub<</a><br></button>
     </div>
   </div>
+  
+   <div class="window" style="margin: 64px; width: 500px">
+    <div class="title-bar">
+      <div class="title-bar-text">
+        <h>more about me</h>      
+      </div>
+    </div>
+    <div class="window-body">
+      <menu role="tablist">
+    <li role="tab" id="General" aria-selected="true"><a href="javascript:changeTab('General')">General</a></li>
+    <li role="tab" id="Programming"><a href="javascript:changeTab('Programming')">Programming</a></li>
+    <li role="tab" id="Hardware"><a href="javascript:changeTab('Hardware')">Hardware</a></li>
+    <li role="tab" id="Security"><a href="javascript:changeTab('Security')">Security</a></li>
+    <li role="tab" id="Machine Learning"><a href="javascript:changeTab('Machine Learning')">Machine Learning</a></li>
+    <li role="tab" id="Others"><a href="javascript:changeTab('Others')">Others</a></li>
+    <li role="tab" id="Fun Stuff"><a href="javascript:changeTab('Fun Stuff')">The Fun Stuff</a></li>
+  </menu>
+    <div class="window" role="tabpanel">
+    <div class="window-body" id="tab_text">
+      <p>I enjoy programming, repairing all kinds of broken things (including PCs) and cybersecurity.</p>
+    </div>
+  </div>
+    </div>
+  </div>
+  
 </body>
 </html>
+
+
+<script>
+const tabname = ["General", "Programming", "Hardware", "Security", "Machine Learning", "Others", "Fun Stuff"]
+const tabtext = ["I enjoy programming, repairing all kinds of broken things (including PCs) and cybersecurity. Italian is my first language. I could speak a little bit of Russian and a little bit of French.",
+		 "Java, C++, Python, C#... are some of the languages I used during my academic journey. In my github you can find some of my university projects or what remains of them.", 
+		 "I studied Computer Architecture and I know how assemble and disassemble a PC. I enjoy to take apart electronic stuff since I was a child.", 
+		 "This is the field I would like to end up in. Forensics, OSINT, Reverse Engineering are some of the things that fascinates me more. I have basic knowledge about cryptography, OSINT and general security related notions.",
+		 "Our times require that all Computer Engineers know about ML. OR at least this is what my university think. So I studied a lot of machine learning. My Bachelor's degree thesis was about BERT language model for the Aspect Based Sentiment Analysis task. You can find the code on my github. Maybe it's still working. Maybe.", 
+		 "My Bachelor's degree included basic notions about electronic and communication engineering.", 
+		 "Since you ended up here I'll tell you about some less boring stuff. I love singing, nothing serious yet, but I'm working on it. I play a discrete amount of videogames. I generally don't like front-end but i like making buttons and make things happen when you press them."]
+function changeTab(id){
+	tabname.forEach(resetTabs)
+	const tab = document.getElementById(id);
+    tab.setAttribute("aria-selected", "true");
+    document.getElementById("tab_text").innerHTML = tabtext[tabname.indexOf(id)];  
+}
+function resetTabs(id) {
+	const tab = document.getElementById(id);
+  	tab.setAttribute("aria-selected", "false");
+}
+</script>
